@@ -1,0 +1,201 @@
+definitions:
+  models.Food:
+    properties:
+      category:
+        example: meat
+        type: string
+      create_at:
+        example: 2021/11/20 15:30:42
+        type: string
+      food_id:
+        example: 15
+        type: integer
+      id:
+        example: 1
+        type: integer
+      is_eaten:
+        example: false
+        type: boolean
+      name:
+        example: Pork
+        type: string
+      owner_id:
+        example: 12
+        type: integer
+      owner_name:
+        example: Peter
+        type: string
+      price:
+        example: 5.18
+        type: number
+      quantity:
+        example: 12
+        type: number
+      shelf_life:
+        example: 30
+        type: integer
+    type: object
+  models.FoodStore:
+    properties:
+      category:
+        example: meat
+        type: string
+      id:
+        example: 1
+        type: integer
+      name:
+        example: Pork
+        type: string
+      src:
+        example: http://imageurl
+        type: string
+    type: object
+  models.Seasoning:
+    properties:
+      create_at:
+        example: 2021/11/20 15:30:42
+        type: string
+      id:
+        example: 1
+        type: integer
+      is_eaten:
+        example: false
+        type: boolean
+      name:
+        example: Salt
+        type: string
+      owner_id:
+        example: 12
+        type: integer
+      owner_name:
+        example: Peter
+        type: string
+      quantity:
+        example: 12
+        type: number
+      seasoning_id:
+        example: 15
+        type: integer
+    type: object
+  models.SeasoningStore:
+    properties:
+      id:
+        example: 1
+        type: integer
+      name:
+        example: Salt
+        type: string
+      src:
+        example: http://imageurl
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /food:
+    get:
+      consumes:
+      - application/json
+      description: Get food from dailyfood database
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Food'
+            type: array
+      summary: Get food request
+      tags:
+      - food
+    post:
+      consumes:
+      - application/json
+      description: Create a new food with the input paylod
+      parameters:
+      - description: Create food
+        in: body
+        name: food
+        required: true
+        schema:
+          $ref: '#/definitions/models.Food'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+      summary: Create a new food
+      tags:
+      - food
+  /foodstore:
+    get:
+      consumes:
+      - application/json
+      description: Get foodstore from dailyfood database
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.FoodStore'
+            type: array
+      summary: Get foodstore request
+      tags:
+      - foodstore
+  /seasoning:
+    get:
+      consumes:
+      - application/json
+      description: Get seasoning from dailyfood database
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Seasoning'
+            type: array
+      summary: Get seasoning request
+      tags:
+      - seasoning
+    post:
+      consumes:
+      - application/json
+      description: Create a new seasoning with the input paylod
+      parameters:
+      - description: Create seasoning
+        in: body
+        name: seasoning
+        required: true
+        schema:
+          $ref: '#/definitions/models.Food'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+      summary: Create a new seasoning
+      tags:
+      - seasoning
+  /seasoningstore:
+    get:
+      consumes:
+      - application/json
+      description: Get seasoningstore from dailyfood database
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.SeasoningStore'
+            type: array
+      summary: Get seasoningstore request
+      tags:
+      - seasoningstore
+swagger: "2.0"
