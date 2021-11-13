@@ -17,4 +17,4 @@ var (
 	   os.Getenv("db_name"))
 )
 
-const AllowedCORSDomain = "http://localhost"
+const AllowedCORSDomain = "http://localhost:3000"
