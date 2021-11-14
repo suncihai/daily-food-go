@@ -5,7 +5,6 @@ import (
 	"go-daily-food/db"
 	"go-daily-food/models"
 	"net/http"
-	"time"
 )
 
 // GetSeasoningstore godoc
@@ -87,11 +86,11 @@ func CreateSeasoning(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		RespondWithError(err, w)
 	} else {
-		createAt := time.Time(seasoning.CreatedAt) 
-		_, err = db.DB.Exec("INSERT INTO seasoning (id, name, created_at, is_eaten, seasoning_id, quantity, owner_id, owner_name) VALUES (? ? ? ? ? ? ? ?)", seasoning.ID, seasoning.Name, createAt, seasoning.IsEaten, seasoning.SeasoningId, seasoning.Quantity, seasoning.OwnerId, seasoning.OwnerName)
+		_, err = db.DB.Exec(`INSERT INTO seasoning (name, created_at, is_eaten, seasoning_id, quantity, owner_id, owner_name) VALUES (?, ?, ?, ?, ?, ?, ?)`, seasoning.Name, seasoning.CreatedAt, seasoning.IsEaten, seasoning.SeasoningId, seasoning.Quantity, seasoning.OwnerId, seasoning.OwnerName)
 		if err != nil {
 			RespondWithError(err, w)
 		}
-		RespondWithSuccess(true, w)
+		res := models.SuccessRes{Success: true, Status: 200}
+		RespondWithSuccess(res, w)
 	}
 }

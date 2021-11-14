@@ -1,7 +1,5 @@
 package models
 
-import "time"
-
 type FoodStore struct {
 	ID       int    `json:"id" example:"1"`
 	Name     string `json:"name" example:"Pork"`
@@ -9,10 +7,10 @@ type FoodStore struct {
 	Src      string `json:"src" example:"http://imageurl"`
 }
 type Food struct {
-    ID        int        `json:"id" example:"1"`
+	ID        int        `json:"id" example:"1"`
 	Name      string     `json:"name" example:"Pork"`
 	Category  string     `json:"category" example:"meat"`
-	CreatedAt time.Time  `json:"create_at" example:"2021/11/20 15:30:42"`
+	CreatedAt int        `json:"created_at" example:"1636864591642"`
 	IsEaten   bool       `json:"is_eaten" example:"false"`
 	FoodId    int        `json:"food_id" example:"15"`
 	Quantity  float32    `json:"quantity" example:"12"`
@@ -29,7 +27,7 @@ type SeasoningStore struct {
 type Seasoning struct {
 	ID           int        `json:"id" example:"1"`
 	Name         string     `json:"name" example:"Salt"`
-	CreatedAt    time.Time  `json:"create_at" example:"2021/11/20 15:30:42"`
+	CreatedAt    int        `json:"created_at" example:"1636864591642"`
 	IsEaten      bool       `json:"is_eaten" example:"false"`
 	SeasoningId  int        `json:"seasoning_id" example:"15"`
 	Quantity     float32    `json:"quantity" example:"12"`
