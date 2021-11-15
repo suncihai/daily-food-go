@@ -4,9 +4,9 @@ definitions:
       category:
         example: meat
         type: string
-      create_at:
-        example: 2021/11/20 15:30:42
-        type: string
+      created_at:
+        example: 1636864591642
+        type: integer
       food_id:
         example: 15
         type: integer
@@ -16,6 +16,9 @@ definitions:
       is_eaten:
         example: false
         type: boolean
+      life:
+        example: 20
+        type: integer
       name:
         example: Pork
         type: string
@@ -34,6 +37,9 @@ definitions:
       shelf_life:
         example: 30
         type: integer
+      src:
+        example: http://imageurl
+        type: string
     type: object
   models.FoodStore:
     properties:
@@ -46,15 +52,18 @@ definitions:
       name:
         example: Pork
         type: string
+      shelf_life:
+        example: 30
+        type: integer
       src:
         example: http://imageurl
         type: string
     type: object
   models.Seasoning:
     properties:
-      create_at:
-        example: 2021/11/20 15:30:42
-        type: string
+      created_at:
+        example: 1636864591642
+        type: integer
       id:
         example: 1
         type: integer
@@ -76,6 +85,9 @@ definitions:
       seasoning_id:
         example: 15
         type: integer
+      src:
+        example: http://imageurl
+        type: string
     type: object
   models.SeasoningStore:
     properties:

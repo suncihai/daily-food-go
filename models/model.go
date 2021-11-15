@@ -1,10 +1,11 @@
 package models
 
 type FoodStore struct {
-	ID       int    `json:"id" example:"1"`
-	Name     string `json:"name" example:"Pork"`
-	Category string `json:"category" example:"meat"`
-	Src      string `json:"src" example:"http://imageurl"`
+	ID        int     `json:"id" example:"1"`
+	Name      string  `json:"name" example:"Pork"`
+	Category  string  `json:"category" example:"meat"`
+	ShelfLife int     `json:"shelf_life" example:"30"`
+	Src       string  `json:"src" example:"http://imageurl"`
 }
 type Food struct {
 	ID        int        `json:"id" example:"1"`
@@ -18,6 +19,8 @@ type Food struct {
 	OwnerName string     `json:"owner_name" example:"Peter"`
 	Price     float32    `json:"price" example:"5.18"`
 	ShelfLife int        `json:"shelf_life" example:"30"`
+	Life      int        `json:"life" example:"20"`
+	Src       string     `json:"src" example:"http://imageurl"`
 }
 type SeasoningStore struct {
 	ID   int    `json:"id" example:"1"`
@@ -33,6 +36,7 @@ type Seasoning struct {
 	Quantity     float32    `json:"quantity" example:"12"`
 	OwnerId      int        `json:"owner_id" example:"12"`
 	OwnerName    string     `json:"owner_name" example:"Peter"`
+	Src          string     `json:"src" example:"http://imageurl"`
 }
 type Recipe struct {
 	ID          int       `json:"id" example:"1"`

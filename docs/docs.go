@@ -194,9 +194,9 @@ var doc = `{
                     "type": "string",
                     "example": "meat"
                 },
-                "create_at": {
-                    "type": "string",
-                    "example": "2021/11/20 15:30:42"
+                "created_at": {
+                    "type": "integer",
+                    "example": 1636864591642
                 },
                 "food_id": {
                     "type": "integer",
@@ -209,6 +209,10 @@ var doc = `{
                 "is_eaten": {
                     "type": "boolean",
                     "example": false
+                },
+                "life": {
+                    "type": "integer",
+                    "example": 20
                 },
                 "name": {
                     "type": "string",
@@ -233,6 +237,10 @@ var doc = `{
                 "shelf_life": {
                     "type": "integer",
                     "example": 30
+                },
+                "src": {
+                    "type": "string",
+                    "example": "http://imageurl"
                 }
             }
         },
@@ -251,6 +259,10 @@ var doc = `{
                     "type": "string",
                     "example": "Pork"
                 },
+                "shelf_life": {
+                    "type": "integer",
+                    "example": 30
+                },
                 "src": {
                     "type": "string",
                     "example": "http://imageurl"
@@ -260,9 +272,9 @@ var doc = `{
         "models.Seasoning": {
             "type": "object",
             "properties": {
-                "create_at": {
-                    "type": "string",
-                    "example": "2021/11/20 15:30:42"
+                "created_at": {
+                    "type": "integer",
+                    "example": 1636864591642
                 },
                 "id": {
                     "type": "integer",
@@ -291,6 +303,10 @@ var doc = `{
                 "seasoning_id": {
                     "type": "integer",
                     "example": 15
+                },
+                "src": {
+                    "type": "string",
+                    "example": "http://imageurl"
                 }
             }
         },

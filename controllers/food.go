@@ -28,7 +28,7 @@ func GetFoodStore(w http.ResponseWriter, r *http.Request) {
 
 	for rows.Next() {
 		var food models.FoodStore
-		err = rows.Scan(&food.ID, &food.Name, &food.Category, &food.Src)
+		err = rows.Scan(&food.ID, &food.Name, &food.Category, &food.ShelfLife, &food.Src)
 		if err != nil {
 			RespondWithError(err, w)
 		}
@@ -60,7 +60,7 @@ func GetFood(w http.ResponseWriter, r *http.Request) {
 
 	for rows.Next() {
 		var food models.Food
-		err = rows.Scan(&food.ID, &food.Name, &food.Category, &food.CreatedAt, &food.IsEaten, &food.FoodId, &food.Quantity, &food.OwnerId, &food.OwnerName, &food.Price, &food.ShelfLife)
+		err = rows.Scan(&food.ID, &food.Name, &food.Category, &food.CreatedAt, &food.IsEaten, &food.FoodId, &food.Quantity, &food.OwnerId, &food.OwnerName, &food.Price, &food.ShelfLife, &food.Life, &food.Src)
 		if err != nil {
 			RespondWithError(err, w)
 		}
@@ -86,7 +86,7 @@ func CreateFood(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		RespondWithError(err, w)
 	} else { 
-		_, err = db.DB.Exec(`INSERT INTO food (name, category, created_at, is_eaten, food_id, quantity, owner_id, owner_name, price, shelf_life) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, food.Name, food.Category, food.CreatedAt, food.IsEaten, food.FoodId, food.Quantity, food.OwnerId, food.OwnerName, food.Price, food.ShelfLife)
+		_, err = db.DB.Exec(`INSERT INTO food (name, category, created_at, is_eaten, food_id, quantity, owner_id, owner_name, price, shelf_life, life, src) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, food.Name, food.Category, food.CreatedAt, food.IsEaten, food.FoodId, food.Quantity, food.OwnerId, food.OwnerName, food.Price, food.ShelfLife, food.Life, food.Src)
 		if err != nil {
 			RespondWithError(err, w)
 		}

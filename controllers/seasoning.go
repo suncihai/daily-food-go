@@ -60,7 +60,7 @@ func GetSeasoning(w http.ResponseWriter, r *http.Request) {
 
 	for rows.Next() {
 		var seasoning models.Seasoning
-		err = rows.Scan(&seasoning.ID, &seasoning.Name, &seasoning.CreatedAt, &seasoning.IsEaten, &seasoning.SeasoningId, &seasoning.Quantity, &seasoning.OwnerId, &seasoning.OwnerName)
+		err = rows.Scan(&seasoning.ID, &seasoning.Name, &seasoning.CreatedAt, &seasoning.IsEaten, &seasoning.SeasoningId, &seasoning.Quantity, &seasoning.OwnerId, &seasoning.OwnerName, &seasoning.Src)
 		if err != nil {
 			RespondWithError(err, w)
 		}
@@ -86,7 +86,7 @@ func CreateSeasoning(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		RespondWithError(err, w)
 	} else {
-		_, err = db.DB.Exec(`INSERT INTO seasoning (name, created_at, is_eaten, seasoning_id, quantity, owner_id, owner_name) VALUES (?, ?, ?, ?, ?, ?, ?)`, seasoning.Name, seasoning.CreatedAt, seasoning.IsEaten, seasoning.SeasoningId, seasoning.Quantity, seasoning.OwnerId, seasoning.OwnerName)
+		_, err = db.DB.Exec(`INSERT INTO seasoning (name, created_at, is_eaten, seasoning_id, quantity, owner_id, owner_name, src) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`, seasoning.Name, seasoning.CreatedAt, seasoning.IsEaten, seasoning.SeasoningId, seasoning.Quantity, seasoning.OwnerId, seasoning.OwnerName, seasoning.Src)
 		if err != nil {
 			RespondWithError(err, w)
 		}
