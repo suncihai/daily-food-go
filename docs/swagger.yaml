@@ -16,9 +16,6 @@ definitions:
       is_eaten:
         example: false
         type: boolean
-      life:
-        example: 20
-        type: integer
       name:
         example: Pork
         type: string

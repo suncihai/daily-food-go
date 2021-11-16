@@ -210,10 +210,6 @@ var doc = `{
                     "type": "boolean",
                     "example": false
                 },
-                "life": {
-                    "type": "integer",
-                    "example": 20
-                },
                 "name": {
                     "type": "string",
                     "example": "Pork"

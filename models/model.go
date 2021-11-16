@@ -19,7 +19,6 @@ type Food struct {
 	OwnerName string     `json:"owner_name" example:"Peter"`
 	Price     float32    `json:"price" example:"5.18"`
 	ShelfLife int        `json:"shelf_life" example:"30"`
-	Life      int        `json:"life" example:"20"`
 	Src       string     `json:"src" example:"http://imageurl"`
 }
 type SeasoningStore struct {
