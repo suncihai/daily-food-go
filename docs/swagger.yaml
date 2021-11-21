@@ -137,6 +137,25 @@ paths:
       summary: Create a new food
       tags:
       - food
+    put:
+      consumes:
+      - application/json
+      description: Edit a food with the input paylod
+      parameters:
+      - description: Edit food
+        in: body
+        name: food
+        required: true
+        schema:
+          $ref: '#/definitions/models.Food'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+      summary: Edit a food
+      tags:
+      - food
   /foodstore:
     get:
       consumes:

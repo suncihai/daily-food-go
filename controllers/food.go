@@ -94,3 +94,27 @@ func CreateFood(w http.ResponseWriter, r *http.Request) {
 		RespondWithSuccess(res, w)
 	}
 }
+
+// @Summary Edit a food
+// @Description Edit a food with the input paylod
+// @Tags food
+// @Accept  json
+// @Produce  json
+// @Param food body models.Food true "Edit food"
+// @Success 200
+// @Router /food [put]
+func EditFood(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	food := models.Food{}
+	err := json.NewDecoder(r.Body).Decode(&food)
+	if err != nil {
+		RespondWithError(err, w)
+	} else { 
+		_, err = db.DB.Exec(`UPDATE food SET name = ?, category = ?, created_at = ?, is_eaten = ?, food_id = ?, quantity = ?, owner_id = ?, owner_name = ?, price = ?, shelf_life = ?, src = ? WHERE id = ?`, food.Name, food.Category, food.CreatedAt, food.IsEaten, food.FoodId, food.Quantity, food.OwnerId, food.OwnerName, food.Price, food.ShelfLife, food.Src, food.ID)
+		if err != nil {
+			RespondWithError(err, w)
+		}
+		res := models.SuccessRes{Success: true, Status: 200}
+		RespondWithSuccess(res, w)
+	}
+}

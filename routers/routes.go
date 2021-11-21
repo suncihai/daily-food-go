@@ -16,6 +16,7 @@ func SetupRoutesForRecords(router *mux.Router) {
 	router.HandleFunc("/foodstore", controllers.GetFoodStore).Methods("GET")
 	router.HandleFunc("/food", controllers.GetFood).Methods("GET")
 	router.HandleFunc("/food", controllers.CreateFood).Methods("POST")
+	router.HandleFunc("/food", controllers.EditFood).Methods("PUT")
 	router.HandleFunc("/seasoningstore", controllers.GetSeasoningStore).Methods("GET")
 	router.HandleFunc("/seasoning", controllers.GetSeasoning).Methods("GET")
 	router.HandleFunc("/seasoning", controllers.CreateSeasoning).Methods("POST")

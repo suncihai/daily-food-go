@@ -48,6 +48,35 @@ var doc = `{
                     }
                 }
             },
+            "put": {
+                "description": "Edit a food with the input paylod",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "food"
+                ],
+                "summary": "Edit a food",
+                "parameters": [
+                    {
+                        "description": "Edit food",
+                        "name": "food",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Food"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            },
             "post": {
                 "description": "Create a new food with the input paylod",
                 "consumes": [
