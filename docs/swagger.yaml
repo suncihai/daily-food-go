@@ -101,6 +101,26 @@ definitions:
 info:
   contact: {}
 paths:
+  /delete-food:
+    post:
+      consumes:
+      - application/json
+      description: Delete a food that is eaten
+      parameters:
+      - description: Delete food
+        in: body
+        name: food
+        required: true
+        schema:
+          $ref: '#/definitions/models.Food'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ""
+      summary: Delete a food
+      tags:
+      - food
   /food:
     get:
       consumes:

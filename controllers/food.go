@@ -118,3 +118,27 @@ func EditFood(w http.ResponseWriter, r *http.Request) {
 		RespondWithSuccess(res, w)
 	}
 }
+
+// @Summary Delete a food
+// @Description Delete a food that is eaten
+// @Tags food
+// @Accept  json
+// @Produce  json
+// @Param food body models.Food true "Delete food"
+// @Success 200
+// @Router /delete-food [post]
+func DeleteFood(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	food := models.Food{}
+	err := json.NewDecoder(r.Body).Decode(&food)
+	if err != nil {
+		RespondWithError(err, w)
+	} else { 
+		_, err = db.DB.Exec(`DELETE FROM food WHERE id = ?`, food.ID)
+		if err != nil {
+			RespondWithError(err, w)
+		}
+		res := models.SuccessRes{Success: true, Status: 200}
+		RespondWithSuccess(res, w)
+	}
+}
